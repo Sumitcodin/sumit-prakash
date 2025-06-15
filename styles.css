@@ -1,0 +1,1160 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background-color: #000;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    z-index: 1002;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007AFF;
+}
+
+/* Mobile Navigation */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 10px;
+    background: none;
+    border: none;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1001;
+        padding: 0;
+        margin: 0;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        list-style: none;
+    }
+
+    /* Ensure the menu is above other content */
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transform-origin: center center;
+    transition: transform 0.3s ease-out;
+}
+
+.video-background.shrink {
+    transform: scale(0.95);
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateZ(0);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.video-overlay.scrolled {
+    opacity: 0.6;
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+}
+
+.hero-content.scrolled {
+    transform: translateY(-20px);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    background-color: #f8f9fa;
+}
+
+/* Features Section */
+.features {
+    padding: 6rem 2rem;
+    background-color: #fff;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #000;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #007AFF;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+/* Specs Section */
+.specs {
+    padding: 6rem 2rem;
+    background-color: #f8f9fa;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.spec-item {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.spec-item h4 {
+    color: #007AFF;
+    margin-bottom: 0.5rem;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 6rem 0;
+    background-color: #000;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+    overflow: hidden;
+}
+
+.gallery .section-container {
+    max-width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.gallery-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    scrollbar-width: none;
+}
+
+.gallery-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-cards-container {
+    display: flex;
+    gap: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: fit-content;
+}
+
+.gallery-card {
+    flex-shrink: 0;
+    width: 300px;
+    /* Height will be determined by content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    /* These properties are now handled by .card-visual-wrapper */
+    background-color: transparent; /* No background on outer card */
+    border-radius: 0; /* No border-radius on outer card */
+    overflow: visible; /* Crucial: outer card must not clip */
+    box-shadow: none; /* No box-shadow on outer card */
+    
+    transition: z-index 0s 0.3s; /* Only transition z-index with a delay */
+    will-change: transform; /* Hint for overall card container optimization */
+    text-align: left;
+}
+
+.gallery-card:hover {
+    z-index: 100; /* Bring hovered card container to the front */
+    /* Transform and box-shadow are applied to .card-visual-wrapper on hover */
+}
+
+.card-visual-wrapper {
+    width: 250px;
+    height: 480px;
+    background-color: #1a1a1a; /* Darker background for the visual area */
+    border-radius: 40px; /* Highly rounded corners */
+    overflow: hidden; /* This correctly clips the image and content within */
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Shadow for the visual card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Apply transform transition here */
+}
+
+.gallery-card:hover .card-visual-wrapper {
+    transform: translateY(-10px) scale(1.05); /* Zoom and lift on hover, applied to wrapper */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.card-description strong {
+    color: #fff;
+}
+
+.card-plus-button {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    z-index: 15;
+}
+
+.gallery-card:hover .card-plus-button {
+    transform: translateY(-10px); /* Lift with the visual wrapper */
+}
+
+.card-plus-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Image Modal Styles */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animations for modal */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* Gallery Navigation Buttons */
+.gallery-nav-buttons {
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
+    z-index: 50;
+    display: flex;
+    gap: 1rem;
+}
+
+.gallery-nav-button {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive Design for modal */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* Responsive Design for Gallery */
+@media (max-width: 768px) {
+    .gallery-cards-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 2rem;
+    }
+    
+    .gallery-card {
+        width: 280px;
+    }
+    
+    .card-visual-wrapper {
+        width: 230px;
+        height: 440px;
+        border-radius: 30px;
+    }
+    
+    .card-description {
+        font-size: 1rem;
+        max-width: 260px;
+    }
+    
+    .gallery-nav-buttons {
+        bottom: 1.5rem;
+        right: 1rem;
+    }
+}
+
+/* Contact Section (New) */
+.contact-options-section {
+    padding: 6rem 2rem;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-options-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.contact-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-option-card {
+    background-color: #1a1a1a; /* Darker card background to stand out */
+    border-radius: 12px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    color: #007AFF; /* Apple blue for icons */
+    margin-bottom: 1.5rem;
+    background-color: transparent; /* No background on icons */
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon .fab.fa-apple {
+    font-size: 4rem; /* Larger Apple icon */
+    background-color: #007AFF; /* Blue background for Apple icon */
+    color: #fff; /* White Apple logo */
+    border-radius: 15px; /* Rounded corners for the background */
+    padding: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-link {
+    color: #007AFF;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-link:hover {
+    color: #0056b3;
+}
+
+.card-link i {
+    font-size: 0.8rem;
+}
+
+/* Responsive adjustments for new contact section */
+@media (max-width: 768px) {
+    .contact-options-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .contact-options-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-options-grid {
+        gap: 1.5rem;
+    }
+
+    .contact-option-card {
+        padding: 2rem;
+    }
+
+    .card-icon {
+        font-size: 3rem;
+    }
+
+    .card-icon .fab.fa-apple {
+        font-size: 3.5rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+    }
+
+    .card-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #007AFF;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007AFF;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Add smooth scroll behavior to the entire page */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Add parallax effect to sections */
+section {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+}
+
+/* Adjust other sections for parallax effect */
+.features, .specs, .gallery, .contact {
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+}
+
+/* Previous gallery styles, removed */
+.gallery-grid {
+    display: none;
+}
+
+.gallery-item {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .gallery-cards-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .gallery-card {
+        width: 250px;
+        height: 400px;
+    }
+    
+    .card-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .card-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Product Chip Details Section */
+.product-chip-details {
+    background-color: #000; /* Dark background */
+    color: #fff; /* White text */
+    padding: 8rem 2rem;
+    text-align: center;
+    position: relative; /* Needed for z-index of background */
+    overflow: hidden; /* Ensure background doesn't overflow */
+}
+
+.product-chip-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/a18prologo.jpg');
+    background-size: cover; /* Cover the entire area */
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.08; /* Super blended and subtle */
+    z-index: 0; /* Behind content */
+}
+
+.product-chip-details .section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative; /* Bring content above pseudo-element */
+    z-index: 1; 
+}
+
+.product-chip-details .section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.intro-paragraph {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc; /* Slightly lighter text for readability */
+    max-width: 800px;
+    margin: 0 auto 5rem auto; /* Center and add bottom margin */
+}
+
+.feature-highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 0;
+    margin-bottom: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Top divider for the grid */
+}
+
+.highlight-item {
+    padding: 2.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Bottom divider */
+    text-align: left;
+    position: relative;
+}
+
+.highlight-item:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Right divider for odd items */
+}
+
+.highlight-item h4 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.highlight-item p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.additional-features {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.additional-features-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.additional-features-content {
+    max-height: 400px; /* Make it scrollable */
+    overflow-y: auto;
+    padding-right: 15px; /* Space for scrollbar */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* For Firefox */
+}
+
+.additional-features-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.additional-features-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.additional-features-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.additional-features-content ul {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.additional-features-content li {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.8;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.additional-features-content li:last-child {
+    border-bottom: none;
+}
+
+/* Adjustments for existing sections to ensure background consistency */
+body {
+    background-color: #000; /* Ensure body background is also dark */
+    color: #fff; /* Default text color for body, overwritten by specific sections */
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.95); /* Darker navbar */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a {
+    color: #fff;
+}
+
+.nav-links a:hover {
+    color: #007AFF;
+}
+
+.logo {
+    color: #fff;
+}
+
+/* Responsive adjustments for new section */
+@media (max-width: 768px) {
+    .product-chip-details .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .intro-paragraph {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+    }
+    
+    .feature-highlights-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+    
+    .highlight-item {
+        border-right: none; /* Remove right border on single column */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ensure bottom border remains */
+    }
+    
+    .highlight-item:last-child {
+        border-bottom: none;
+    }
+    
+    .additional-features-title {
+        font-size: 2rem;
+    }
+    
+    .additional-features-content li {
+        font-size: 1rem;
+    }
+}
+
+/* Product Colors Section */
+.product-colors {
+    background-color: #000;
+    color: #fff;
+    padding: 0 2rem; /* Set top/bottom padding to 0 */
+    text-align: center;
+    overflow: hidden;
+}
+
+.product-colors .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-colors .section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0; /* Ensure no margins */
+    color: #fff;
+}
+
+.product-image-display {
+    margin-bottom: 0; /* Removed margin */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: auto; /* Removed min-height */
+}
+
+.product-image-display img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Transition for smooth image change */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.product-image-display img.fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: -1rem; /* Pull up closer to the image */
+    margin-bottom: 0; /* Removed margin */
+    padding: 20px;
+}
+
+.color-swatches {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.active {
+    border-color: #007AFF; /* Highlight active color */
+    transform: scale(1.1);
+}
+
+/* Specific color backgrounds for swatches */
+.color-swatch[data-color="black"] {
+    background-color: #222;
+}
+
+.color-swatch[data-color="silver"] {
+    background-color: #aaa;
+}
+
+.color-swatch[data-color="white"] {
+    background-color: #eee;
+}
+
+.color-swatch[data-color="gold"] {
+    background-color: #d4af37;
+}
+
+/* Responsive adjustments for new section */
+@media (max-width: 768px) {
+    .product-colors .section-title {
+        font-size: 2.5rem;
+    }
+    .product-image-display {
+        min-height: 400px;
+    }
+} 
