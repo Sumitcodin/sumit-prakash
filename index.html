@@ -1,281 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Landing Page</title>
-    <link rel="icon" href="assets/apple_logo.png" type="image/png">
+    <title>Sumit Prakash - Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">iPhone 16 Pro</div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav>
+        <div class="nav-content">
+            <a href="#home" class="logo">Portfolio</a>
+            <div class="menu-toggle">
+                <div class="hamburger"></div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#product-chip-details">Product Details</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#" id="resumeBtn">Resume</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <source src="assets/large_2x.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay"></div>
-        </div>
-        <div class="hero-content">
-            <h1 class="fade-in">The Future is Here</h1>
-            <p class="subtitle fade-in">Experience innovation like never before</p>
-            <button class="cta-button fade-in">
-                <a href="#product-chip-details" style="text-decoration: none; color: black;">
-                    Learn More
-                </a>
-            </button>
-        </div>
-    </section>
-
-    <!-- Product Chip Details Section -->
-    <section id="product-chip-details" class="product-chip-details">
-        <div class="section-container">
-            <h2 class="section-title dark-background fade-in">The Brains Behind Apple Intelligence.</h2>
-            <p class="intro-paragraph dark-background fade-in">
-                A phenomenally powerful chip enables Apple Intelligence with a faster Neural Engine, an improved CPU and
-                GPU, and a big jump in memory bandwidth. It also drives advanced video and photo features like Camera
-                Control, and it delivers our best-ever graphics performance for AAA gaming.
-            </p>
-
-            <div class="feature-highlights-grid">
-                <div class="highlight-item fade-in">
-                    <h4>New 16-core<br>Neural Engine</h4>
-                    <p>is faster and more efficient,<br>supercharging Apple Intelligence</p>
-                </div>
-                <div class="highlight-item fade-in">
-                    <h4>New 6-core GPU</h4>
-                    <p>gives you enhanced graphics<br>performance</p>
-                </div>
-                <div class="highlight-item fade-in">
-                    <h4>New 6-core CPU,</h4>
-                    <p>the fastest in a smartphone, runs<br>complex workloads with less power</p>
-                </div>
-                <div class="highlight-item fade-in">
-                    <h4>17% increase in total<br>system memory bandwidth,</h4>
-                    <p>the highest ever in iPhone, for<br>outstanding performance</p>
-                </div>
-            </div>
-
-            <div class="additional-features">
-                <h3 class="additional-features-title dark-background fade-in">Additional Features</h3>
-                <div class="additional-features-content">
-                    <ul class="fade-in">
-                        <li>Pro camera system: 48MP Fusion, 24 mm, ƒ/1.78 aperture, second‑generation sensor‑shift
-                            optical image stabilization.</li>
-                        <li>4K Dolby Vision video recording at 24 fps, 25 fps, 30 fps, 60 fps, 100 fps (Fusion), or 120
-                            fps (Fusion).</li>
-                        <li>TrueDepth Camera: 12MP camera, ƒ/1.9 aperture, Autofocus with Focus Pixels.</li>
-                        <li>Face ID: Enabled by TrueDepth camera for facial recognition.</li>
-                        <li>Apple Pay: Pay with your iPhone using Face ID in stores, within apps, and on the web.</li>
-                        <li>Emergency SOS via satellite, Crash Detection, Roadside Assistance via satellite.</li>
-                        <li>Titanium design with Latest-generation Ceramic Shield front and Textured matte glass back.
-                        </li>
-                    </ul>
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="resume-container">
+                <iframe src="assets/SumitPrakashResume.pdf" width="100%" height="600px"></iframe>
+                <div class="resume-actions">
+                    <a href="assets/SumitPrakashResume.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Product Colors Section -->
-    <section id="product-colors" class="product-colors">
-        <div class="section-container">
-            <h2 class="section-title dark-background fade-in">Take a closer look.</h2>
-            <div class="product-image-display fade-in">
-                <img id="current-product-image" src="assets/apple_intelligence__gbh77cvflkia_xlarge_2x.jpg"
-                    alt="iPhone 16 Pro in Black Titanium">
-            </div>
-            <p class="image-caption fade-in">15.93 cm (6.3") iPhone 16 Pro in four colours</p>
-            <div class="color-swatches fade-in">
-                <button class="color-swatch active" data-color="black"
-                    data-image="assets/apple_intelligence__gbh77cvflkia_xlarge_2x.jpg"></button>
-                <button class="color-swatch" data-color="silver"
-                    data-image="assets/color__eaawe4bmivki_xlarge_2x.jpg"></button>
-                <button class="color-swatch" data-color="white"
-                    data-image="assets/modal_supersmart__bvdssvc2v8b6_large_2x.jpg"></button>
-                <button class="color-swatch" data-color="gold"
-                    data-image="assets/thin__eqeewfn1mgsy_xlarge_2x.jpg"></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="section-container">
-            <div class="gallery-scroll-wrapper">
-                <div class="gallery-cards-container">
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/iphone holding.jpg" alt="Personalise Home Screen" class="card-image">
-                        </div>
-                        <p class="card-description"><strong>Personalise your Home Screen.</strong> Tint your icons with
-                            any colour. Rearrange and resize apps and widgets. You can even lock or hide apps to protect
-                            sensitive information — it's your call.</p>
-                        <button class="card-plus-button" data-image-src="assets/iphone holding.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/modal_supersmart__bvdssvc2v8b6_large_2x.jpg" alt="Choose your controls"
-                                class="card-image">
-                        </div>
-                        <p class="card-description"><strong>Choose your controls.</strong> Swap out your Lock Screen
-                            controls for ones you love to use more often. Or you can assign a control to the Action
-                            button.</p>
-                        <button class="card-plus-button"
-                            data-image-src="assets/modal_supersmart__bvdssvc2v8b6_large_2x.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/modal_second__e1xvbvxfc5oy_large_2x.jpg"
-                                alt="Find your favourite shots faster" class="card-image">
-                        </div>
-                        <p class="card-description"><strong>Find your favourite shots faster.</strong> In the revamped
-                            Photos app, your Collections are automatically organised by topic, like People & Pets.</p>
-                        <button class="card-plus-button"
-                            data-image-src="assets/modal_second__e1xvbvxfc5oy_large_2x.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/apple_intelligence__gbh77cvflkia_xlarge_2x.jpg" alt="Product Feature 4"
-                                class="card-image">
-                        </div>
-                        <p class="card-description"><strong>Immersive Audio.</strong> Experience rich, spatial audio
-                            with dynamic head tracking for a truly captivating listening experience.</p>
-                        <button class="card-plus-button"
-                            data-image-src="assets/apple_intelligence__gbh77cvflkia_xlarge_2x.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/battery__2v7w6kmztvm2_xlarge_2x.jpg" alt="Product Feature 5"
-                                class="card-image">
-                        </div>
-                        <p class="card-description"><strong>All-Day Battery Life.</strong> Our highly efficient chip and
-                            optimized software deliver power that lasts from morning to night.</p>
-                        <button class="card-plus-button" data-image-src="assets/battery__2v7w6kmztvm2_xlarge_2x.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/modal_5g__fubpi4cg2m6i_large_2x.jpg" alt="Product Feature 6"
-                                class="card-image">
-                        </div>
-                        <p class="card-description"><strong>Blazing-Fast Connectivity.</strong> With 5G speeds, download
-                            movies, stream high-quality video, and game with ultra-low latency.</p>
-                        <button class="card-plus-button" data-image-src="assets/modal_5g__fubpi4cg2m6i_large_2x.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="card-visual-wrapper">
-                            <img src="assets/thin__eqeewfn1mgsy_xlarge_2x.jpg" alt="Product Feature 7"
-                                class="card-image">
-                        </div>
-                        <p class="card-description"><strong>Durable & Elegant Design.</strong> Crafted with
-                            aerospace-grade titanium and protected by Ceramic Shield, it's built to last.</p>
-                        <button class="card-plus-button" data-image-src="assets/thin__eqeewfn1mgsy_xlarge_2x.jpg"><i
-                                class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-nav-buttons">
-                <button id="prev-gallery" class="gallery-nav-button"><i class="fas fa-chevron-left"></i></button>
-                <button id="next-gallery" class="gallery-nav-button"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Image Modal -->
-    <div id="image-modal" class="image-modal">
-        <span class="close-button">&times;</span>
-        <img class="modal-content" id="modal-image">
-        <div id="caption"></div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-options-section">
-        <div class="section-container">
-            <h2 class="section-title">How can we help you?</h2>
-            <div class="contact-options-grid">
-                <div class="contact-option-card">
-                    <div class="card-icon"><i class="fas fa-comments"></i></div>
-                    <h3 class="card-title">Apple Communities</h3>
-                    <p class="card-description">Find answers, ask questions and connect with other Apple users.</p>
-                    <a href="https://support.apple.com/en-us/HT209030" target="_blank" class="card-link">Ask or search now <i class="fas fa-chevron-right"></i></a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <h1>
+                    <span class="static-text">Hi, I'm </span>
+                    <span class="highlight typewriter">Sumit Prakash</span>
+                </h1>
+                <p class="tagline">A passionate developer crafting digital experiences</p>
+            </div>
+            <div class="avatar-container">
+                <div class="avatar-frame">
+                    <img src="assets/avatar2.jpeg" alt="Sumit Prakash" class="avatar">
                 </div>
-                <div class="contact-option-card">
-                    <div class="card-icon"><i class="fas fa-headset"></i></div>
-                    <h3 class="card-title">Get Support</h3>
-                    <p class="card-description">We can help you find the best support options.</p>
-                    <a href="https://support.apple.com/en-us/contact" target="_blank" class="card-link">Start now <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="social-section">
+                <p class="social-heading">Find me on</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/sumit-prakash-a83667267" target="_blank" class="social-pill">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Sumitcodin" target="_blank" class="social-pill">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:prakashsumit2017@gmail.com" class="social-pill">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
                 </div>
-                <div class="contact-option-card">
-                    <div class="card-icon"><i class="fab fa-apple"></i></div>
-                    <h3 class="card-title">Support app</h3>
-                    <p class="card-description">Get personalised access to solutions for your Apple products.</p>
-                    <a href="https://apps.apple.com/us/app/apple-support/id1130498044" target="_blank" class="card-link">Download the Apple Support app <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <a href="#projects" class="explore-button">
+                <span>explore my builds</span>
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="scroll-buttons-wrapper">
+            <button class="scroll-button scroll-left" onclick="scrollProjects('left')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="scroll-button scroll-right" onclick="scrollProjects('right')">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="project-grid">
+            <!-- Jobify -->
+            <div class="project-card">
+                <img src="assets/jobify.jpg" alt="Jobify - Online Job Portal" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Jobify</h3>
+                    <p class="project-description">A comprehensive job portal connecting employers and job seekers with advanced search, application tracking, and real-time notifications.</p>
+                    <div class="project-links">
+                        <a href="https://sumitcodin.github.io/jobify" target="_blank" class="project-link live-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Sumitcodin/jobify" target="_blank" class="project-link code-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Forecast App -->
+            <div class="project-card">
+                <img src="assets/weather-1.jpg" alt="Weather Forecast App" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Weather Forecast App</h3>
+                    <p class="project-description">A modern weather application providing real-time forecasts, 7-day predictions, and interactive weather maps with location-based services.</p>
+                    <div class="project-links">
+                        <a href="https://sumitcodin.github.io/weather-forecast" target="_blank" class="project-link live-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Sumitcodin/weather-forecast" target="_blank" class="project-link code-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Landing Page -->
+            <div class="project-card">
+                <img src="assets/product-landing-1.jpg" alt="Product Landing Page" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Product Landing Page</h3>
+                    <p class="project-description">An elegant and responsive product landing page featuring dynamic visuals, smooth animations, and compelling call-to-action elements.</p>
+                    <div class="project-links">
+                        <a href="https://sumitcodin.github.io/product-landing-page" target="_blank" class="project-link live-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Sumitcodin/product-landing-page" target="_blank" class="project-link code-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cafe Management System -->
+            <div class="project-card">
+                <img src="assets/cafe-management.jpg" alt="Cafe Management System" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Cafe Management System</h3>
+                    <p class="project-description">A comprehensive web application for cafe management featuring menu management, order processing, inventory tracking, and customer analytics.</p>
+                    <div class="project-links">
+                        <a href="https://sumitcodin.github.io/cafe-management-system" target="_blank" class="project-link live-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Sumitcodin/cafe-management-system" target="_blank" class="project-link code-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About Us</h4>
-                    <p>We're dedicated to creating innovative products that enhance your daily life.</p>
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <h2>Academic Background</h2>
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>B.Tech in Computer Science</h3>
+                        <p class="timeline-date">2024 - 2027</p>
+                        <p class="timeline-location">Arka Jain University, Jamshedpur</p>
+                        <p class="timeline-description">Pursuing advanced studies in computer science and software development</p>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#product-chip-details">Product Details</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Second Internship</h3>
+                        <p class="timeline-date">Aug 2022 - Sep 2022</p>
+                        <p class="timeline-location">Ardent Computech Pvt Ltd, Kolkata</p>
+                        <p class="timeline-description">Working on cutting-edge projects and gaining industry experience</p>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Connect With Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>First Internship</h3>
+                        <p class="timeline-date">July 2023 - Aug 2023</p>
+                        <p class="timeline-location">Ardent Computech Pvt Ltd, Kolkata</p>
+                        <p class="timeline-description">Worked as a junior developer, gaining hands-on experience</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Diploma in Computer Science</h3>
+                        <p class="timeline-date">2021 - 2024</p>
+                        <p class="timeline-location">Arka Jain University, Jamshedpur</p>
+                        <p class="timeline-description">Specialized in computer science fundamentals and programming</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>10th Grade</h3>
+                        <p class="timeline-date">2018</p>
+                        <p class="timeline-location">Karim City College, Jamshedpur</p>
+                        <p class="timeline-description">Completed secondary education with distinction</p>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sumit Prakash. All rights reserved.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-pill">
+                <i class="fab fa-html5"></i>
+                <span>HTML</span>
             </div>
+            <div class="skill-pill">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS</span>
+            </div>
+            <div class="skill-pill">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-pill">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+            </div>
+            <div class="skill-pill">
+                <i class="fas fa-code"></i>
+                <span>Web Development</span>
+            </div>
+            <div class="skill-pill">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </div>
+            <div class="skill-pill">
+                <i class="fab fa-github"></i>
+                <span>Java</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Let's Connect</h3>
+                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" class="footer-social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Sumitcodin" target="_blank" class="footer-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:prakashsumit2017@gmail.com" class="footer-social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jamshedpur, India</p>
+                <p><i class="fas fa-phone"></i> +91 7479614061</p>
+                <p><i class="fas fa-envelope"></i> prakashsumit2017@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sumit Prakash. All rights reserved.</p>
+            <p class="footer-quote">"Crafting digital experiences with passion"</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
-</html>
+</html> 
